@@ -21,6 +21,14 @@ angular.module('ellenWebappApp', [
         templateUrl: 'views/login.html',
         controller: 'LoginController'
       })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/create', {
+        templateUrl: 'views/create.html',
+        controller: 'CreateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
