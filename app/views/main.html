@@ -1,38 +1,46 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-    <li ng-cloak ng-show-auth="login" ng-controller="LoginController"><a href="#" ng-click="logout()">Log Out</a></li>
-    <li ng-cloak ng-show-auth="['logout','error']"><a href="#/login">Log In</a></li>
+<header class="header--global Grid">
+  <a href="" class="branding__logo"><span class="hidden">Ellen</span></a>
+  <ul class="primary-nav Grid-cell">
+    <li><a href=""><i class="fa fa-th-list"></i>Content</a></li>
+    <li><a href=""><i class="fa fa-plus"></i>New Article</a></li>
   </ul>
-  <h3 class="text-muted">ellen webapp</h3>
-</div>
-
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
-</div>
+  <a href=""  ng-click="logout()" class="primary-nav__logout">Logout</a>
+</header>
+<main>
+  <section class="content-view-container Grid">
+    <section class="content-list  u-1of3">
+      <header class="header--list Grid">
+        <span class="header--list__title Grid-cell">All Feeds</span>
+        <i class="fa fa-plus header__icon--add Grid-cell--center"></i>
+      </header>
+      <ol class="content-list__content">
+        <li ng-repeat="(feedID, feed) in feeds | orderByPriority | reverse">
+        <!-- <li> -->
+          <a href="" ng-click="loadFeed(feed)">
+            <h3 class="content--list__title">
+              <span ng-switch on="feed.type">
+                <i class="fa fa-question-circle" ng-switch-when="question"></i>
+                <i class="fa fa-file-text" ng-switch-when="article"></i>
+              </span> {{feed.title}}
+            </h3>
+            <span class="date-created">Created: {{feed.dateCreated | date:'fullDate'}}</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+    <section class="content-preview u-2of3">
+      <header class="header--list Grid">
+        <span class="header--list__title Grid-cell">Author: {{selected.author.name}}</span>
+        <a href="" ng-click="deleteFeed(selected)"><i class="fa fa-trash-o header__icon--add Grid-cell--center"></i></a>
+      </header>
+      <section class="content-preview__content">
+        <div class="wrapper">
+          <h1 class="feed--title">{{selected.title}}</h1>
+          <p>
+            {{selected.content}}
+          </p>
+        </div>
+      </section>
+    </section>
+  </section>
+</main>

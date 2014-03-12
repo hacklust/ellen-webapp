@@ -1,91 +1,281 @@
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+$fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'sass-bootstrap/lib/bootstrap';
+@import "font-awesome/scss/font-awesome";
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-/* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  background: #edece4;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0;
 }
 
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
+h1 {
+  font-size: 2em;
 }
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.container-fluid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header--global {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  background: rgb(73, 25, 90);
+  left: 0;
+  right: 0;
+  color: #e2edf2;
+  font-size: 0.8em;
+}
+
+.branding__logo {
+  width: 40px !important;
+}
+
+.primary-nav {
+  list-style: none;
+  position: relative;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  > li {
+    float: left;
+    height: 100%;
     line-height: 40px;
-    padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
     text-align: center;
-    border-bottom: 1px solid #e5e5e5;
+    border-right: #35393b 1px solid;
+    a {
+      padding: 0 15px;
+      display: block;
+      height: 100%;
+      color: #7d878a;
+      text-transform: uppercase;
+      transition: 0.2s background ease-in;
+      &:link, &:active, &:visited {
+        color: #e2edf2;
+      }
+      &:hover {
+        background: rgb(145, 92, 174);
+        text-decoration: none;
+      }
+      .fa {
+        margin-right: 10px;
+      }
+    }
+  }
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.primary-nav__logout {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100px;
+  padding: 11px 15px;
+  color: #7d878a;
+  text-transform: uppercase;
+  transition: 0.2s background ease-in;
+  line-height: 40px;
+  text-align: center;
+  &:link, &:active, &:visited {
+    color: #e2edf2;
+  }
+  &:hover {
+    background: rgb(145, 92, 174);
+    text-decoration: none;
+  }
+  .fa {
+    margin-right: 10px;
+  }
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
+main {
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 0;
+  left: 15px;
+  padding: 0;
 }
 
-.marketing p + h4 {
-    margin-top: 28px;
+.content-view-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  > section {
+    position: relative;
+    border-right: #edece4 2px solid;
+    background: #fff;
+  }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+.entry-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
+.entry__editor {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  > section {
+    position: relative;
+    border-right: #edece4 2px solid;
+    background: #fff;
+  }
+}
+
+.content-list {
+  padding-top: 40px !important;
+  overflow: auto;
+}
+
+.header--list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 40px;
+  line-height: 40px;
+  color: #aaa9a2;
+  text-transform: uppercase;
+}
+
+.header--list__title {
+  margin-left: 15px;
+  font-size: 0.8em;
+}
+
+.header__icon--add {
+  background: rgb(73, 25, 90);
+  color: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.content-list__content {
+  border-top: #edece4 1px solid;
+  margin: 0;
+  padding: 0;
+  > li {
+    min-height: 90px;
+    padding: 0;
+    list-style: none;
+    a {
+      display: block;
+      padding: 15px;
+      border-bottom: #edece4 1px solid;
+      &:link, &:active, &:visited {
+        color:  #222;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      &.active {
+        font-weight: bold;
+        background: #f6f6f6;
+        box-shadow: #e8eaeb 0 -1px 0, rgba(0, 0, 0, 0.06) 7px 0 0 inset, #e8eaeb 1px 0 0 inset;
+        .content--list__title {
+          font-weight: 800;
+        }
+        .date-created {
+          color: #222;
+          font-weight: normal;
+        }
+      }
+      .content--list__title {
+        margin-bottom: 10px;
+        font-weight: 300;
+      }
+      .date-created {
+        color: #aaa9a2;
+      }
     }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
+  }
+}
+
+.content-preview {
+  overflow: auto;
+}
+
+.content-preview__content {
+  padding: 80px 40px;
+  .feed--title {
+    font-size: 3.2em;
+    font-weight: 800;
+  }
+  .subtitle {
+    font-size: 2.4em;
+    font-weight: 800;
+  }
+}
+
+.wrapper {
+  margin: 0 15px;
+}
+
+.entry-title {
+  background: #fff;
+  height: 53px;
+  padding: 2px 15px;
+  margin-bottom: 5px;
+  position: relative;
+  width: 100%;
+  > input {
+    background: transparent;
+    border: none;
+    height: 100%;
+    font-size: 3.2em;
+    color: #333;
+    font-weight: 800;
+    width: 100%;
+    line-height: 53px;
+    outline: none;
+    box-shadow: none;
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
     }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+  }
+}
+
+.Grid {
+  display: flex;
+}
+
+.Grid-cell {
+  flex: 1;
+}
+
+.Grid-cell--center {
+  align-self: center;
+}
+
+.u-1of3 {
+  width: 33.3333%!important;
+}
+
+.u-2of3 {
+  width: 66.66666%!important;
 }
